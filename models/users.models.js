@@ -55,5 +55,5 @@ fetchUsers,
 getUser,
 createUser,
 destroyUser,
-//updateDriver
+//updateUser
 }  
