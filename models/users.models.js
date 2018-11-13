@@ -1,49 +1,49 @@
-const driversQuery = require('../queries/01_drivers.query')
+const usersQuery = require('../queries/01_users.query')
 //=================================FETCH=================================/
-const fetchDrivers = () => {
-    let drivers = driversQuery.fetchDrivers()
+const fetchUsers = () => {
+    let users = usersQuery.fetchUsers()
 
-    return drivers.then(result => {
+    return users.then(result => {
         return result.length < 1
-        ? { error: 'error retreiving drivers', status: 404 }
+        ? { error: 'error retreiving users', status: 404 }
         : result
     })
 };
 //=================================GET=================================/
-const getDriver= (id) => {
-    let drivers = driversQuery.getDriver(id)
+const getUser= (id) => {
+    let users = usersQuery.getUser(id)
 
-    return drivers.then(result => {
+    return users.then(result => {
         return result.length < 1
         ? { error: 'error retreiving ', status: 404 }
         : result
     }) 
 };
 //=================================CREATE=================================/
-const createDriver = (driverInfo) => {
-drivers = driversQuery.createDriver(driverInfo)
+const createUser = (userInfo) => {
+users = usersQuery.createUser(userInfo)
 
-    return drivers.then(result => {
+    return users.then(result => {
         return result.length < 1
         ? { error: 'error retreiving', status: 404 }
         : result
     })
 };
 //==========================DELETE==========================//
-const destroyDriver = (id) => {
-    const drivers = driversQuery.destroyDriver(id);
-    return drivers.then(result => {
+const destroyUser = (id) => {
+    const users = usersQuery.destroyUser(id);
+    return users.then(result => {
         return result.length < 1 ?
         { error: 'error deleting', status: 400 } :
         result
     });
 }
 //==========================UPDATE==========================//
-const updateDriver = (id, driverInfo) => {
-    const drivers = driversQuery.updateDriver(id, driverInfo);
-    return drivers.then(result => {
+const updateuser = (id, userInfo) => {
+    const users = usersQuery.updateuser(id, userInfo);
+    return users.then(result => {
         return result.length < 1 ?
-        { error: 'error updating driver', status: 400 } :
+        { error: 'error updating user', status: 400 } :
         result
     })
 }
@@ -51,9 +51,9 @@ const updateDriver = (id, driverInfo) => {
 
 
 module.exports = {
-fetchDrivers,
-getDriver,
-createDriver,
-destroyDriver,
+fetchUsers,
+getUser,
+createUser,
+destroyUser,
 //updateDriver
 }  
